@@ -1,0 +1,70 @@
+<!-- Search Bar -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-  
+        scale=1">
+        <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-
+        awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/static/index.css">
+        <style>
+        		.vertical-text {
+				  margin: 0 auto 2em;
+				  width: 0;
+				  word-wrap: break-word;
+				}
+			
+			.item1 { grid-area: header; background-image: linear-gradient(130deg, #6C52D9 0%, #1EAAFC 85%, #3EDFD7 100%);}
+			.item2 { grid-area: sidebar; background-image: linear-gradient(203deg, #3EDFD7 0%, #29A49D 90%)}
+			.item3 { grid-area: main; height:400px}
+			.item4 { grid-area: right; }
+			.item5 { grid-area: footer; background-image: linear-gradient(130deg, #6C52D9 0%, #1EAAFC 85%, #3EDFD7 100%);}
+			
+			.grid-container {
+			  display: grid;
+			  justify-content: space-evenly;
+			  grid-template-areas:
+			    'header header header header header header'
+			    'main main main main main main'
+			    'footer footer footer footer footer footer';
+			  grid-gap: 10px;
+			  background-color: #2196F3;
+			  padding: 10px;
+			}
+			
+			.grid-container > div {
+			  background-color: rgba(255, 255, 255, 0.8);
+			  text-align: center;
+			  padding: 20px 0;
+			  font-size: 15px;
+			}
+		</style>
+    </head>
+    <body>
+    		<div class="grid-container">
+		  <div class="item1"><center><h2><font color="white">Stock Trend Hypothesis using News Sentiment Analysis and Empirical Data Analytics</font></h2></div>
+		  <div class="item3"><center><table>
+	        <tr>
+	        		<th>Form</th>
+	        		<th>Action</th>
+	        </tr>
+	        <tr>
+	        		<td width="10px"><b>1</b></td>
+	        		<span><td padding="20px">
+	        		<form class="example" id="f" method="post" action="/predict"
+			         style="margin:auto;max-width:400px">
+			            <input type="text" placeholder="Ticker" name="ticker">
+			            <button type="submit"><i class="fa fa-search">Train and Predict</i>
+			            </button>
+			        </form></td></span>
+	        </tr>
+        </table></center></div>
+		  <!-- <div class="item4"></div> -->
+		  <div class="item5">Manoj Veluchuri</div>
+		</div>
+        
+        
+        
+    </body>
+</html>

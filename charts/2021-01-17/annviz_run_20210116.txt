@@ -1,0 +1,163 @@
+/Users/kvel/.virtualenvs/dissertation/bin/python /Users/kvel/PycharmProjects/dissertation/annviz.py
+[nltk_data] Error loading vader_lexicon: <urlopen error [SSL:
+[nltk_data]     CERTIFICATE_VERIFY_FAILED] certificate verify failed
+[nltk_data]     (_ssl.c:748)>
+/Users/kvel/PycharmProjects/dissertation/empirical_analysis.py:7: FutureWarning: The pandas.datetime class is deprecated and will be removed from pandas in a future version. Import from datetime instead.
+  datetime.today().strftime('%Y-%m-%d'))
+[*********************100%***********************]  1 of 1 completed
+   Item      Open     Close    Volume
+0     0  0.624646  0.643979  0.065188
+1     1  0.615762  0.637185  0.082426
+2     2  0.635758  0.627921  0.103922
+3     3  0.657373  0.648097  0.173515
+4     4  0.614339  0.670743  0.183628
+
+
+Open   --- mean : 0.5529861101771568   	 Std:  0.22143633162261925   	 Max:  1.0   	 Min:  0.0
+Close  --- mean : 0.5644699830682266   	 Std:  0.22448747613064635   	 Max:  1.0   	 Min:  0.0
+Volume --- mean : 0.1593740564335482   	 Std:  0.10785706986425396   	 Max:  0.9999999999999999   	 Min:  0.0
+   Item      Open     Close    Volume
+0     0  0.624646  0.643979  0.065188
+1     1  0.615762  0.637185  0.082426
+2     2  0.635758  0.627921  0.103922
+3     3  0.657373  0.648097  0.173515
+4     4  0.614339  0.670743  0.183628
+---
+     Item      Open     Close    Volume
+453   453  0.041212  0.035822  0.323722
+454   454  0.047879  0.042205  0.166102
+455   455  0.042020  0.048998  0.173713
+456   456  0.064428  0.043201  0.153926
+457   457  0.079798  0.066086  0.094531
+x_train (346, 3)
+y_train (346,)
+x_test (110, 3)
+y_test (110,)
+x_train (341, 5, 3)
+y_train (341,)
+x_test (105, 5, 3)
+y_test (105,)
+2021-01-16 19:19:52.627480: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-01-16 19:19:52.653930: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x12363b0b0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2021-01-16 19:19:52.653948: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+compilation time :  0.013997077941894531
+Epoch 1/3
+11/11 [==============================] - 1s 97ms/step - loss: 0.1155 - val_loss: 0.0027
+Epoch 2/3
+11/11 [==============================] - 0s 33ms/step - loss: 0.0137 - val_loss: 0.0052
+Epoch 3/3
+11/11 [==============================] - 0s 30ms/step - loss: 0.0065 - val_loss: 5.7839e-04
+
+Prediction using Empirical Data Only:
+Train Score: 0.00554688 MSE (0.07447736 RMSE)
+Test Score: 0.00713193 MSE (0.08445076 RMSE)
+Delta Pr(ice: 0.007132 - RMSE * Adjusted Close Range
+x_train (346, 3)
+y_train (346,)
+x_test (110, 3)
+y_test (110,)
+x_train (341, 5, 3)
+y_train (341,)
+x_test (105, 5, 3)
+y_test (105,)
+compilation time :  0.013306140899658203
+Epoch 1/3
+11/11 [==============================] - 1s 103ms/step - loss: 0.1108 - val_loss: 0.0024
+Epoch 2/3
+11/11 [==============================] - 0s 31ms/step - loss: 0.0148 - val_loss: 0.0112
+Epoch 3/3
+11/11 [==============================] - 0s 30ms/step - loss: 0.0075 - val_loss: 0.0014
+
+Tuned Prediction using Empirical Data Only:
+Train Score: 0.00312788 MSE (0.05592748 RMSE)
+Test Score: 0.00618208 MSE (0.07862620 RMSE)
+Delta Pr(ice: 0.006182 - RMSE * Adjusted Close Range
+/Users/kvel/PycharmProjects/dissertation/sentiment_analysis.py:26: GuessedAtParserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system ("lxml"). This usually isn't a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
+
+The code that caused this warning is on line 26 of the file /Users/kvel/PycharmProjects/dissertation/sentiment_analysis.py. To get rid of this warning, pass the additional argument 'features="lxml"' to the BeautifulSoup constructor.
+
+  html = BeautifulSoup(response)
+b'Big Pension Bought Up Tesla, Apple, Microsoft, and GE Stock'
+b'Jan-16-21 07:00AM\xc2\xa0\xc2\xa0'
+b'Barrons 2020 Quiz Winner Gets an Unusually High Score'
+b'Jan-15-21 08:19PM\xc2\xa0\xc2\xa0'
+b'Daily Crunch: WhatsApp responds to privacy backlash'
+b'06:07PM\xc2\xa0\xc2\xa0'
+b'Intel Made the Right CEO Choice With Pat Gelsinger. A Rebound Will Still Take Time.'
+b'05:55PM\xc2\xa0\xc2\xa0'
+/Users/kvel/.virtualenvs/dissertation/lib/python3.6/site-packages/pandas/core/frame.py:4308: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  errors=errors,
+/Users/kvel/PycharmProjects/dissertation/empirical_analysis.py:7: FutureWarning: The pandas.datetime class is deprecated and will be removed from pandas in a future version. Import from datetime instead.
+  datetime.today().strftime('%Y-%m-%d'))
+[*********************100%***********************]  1 of 1 completed
+   Item      Open     Close    Volume  Polarity
+0     0  0.624646  0.643979  0.065188   0.00000
+1     1  0.615762  0.637185  0.082426   0.24932
+2     2  0.635758  0.627921  0.103922   0.00000
+3     3  0.657373  0.648097  0.173515   0.20230
+4     4  0.614339  0.670743  0.183628  -0.40230
+
+
+Open   --- mean : 0.5529861101771568   	 Std:  0.22143633162261925   	 Max:  1.0   	 Min:  0.0
+Close  --- mean : 0.5644699830682266   	 Std:  0.22448747613064635   	 Max:  1.0   	 Min:  0.0
+Volume --- mean : 0.1593740564335482   	 Std:  0.10785706986425396   	 Max:  0.9999999999999999   	 Min:  0.0
+Polarity --- mean : 0.006392510917030569   	 Std:  0.08643482403603718   	 Max:  0.7184   	 Min:  -0.6072
+   Item      Open     Close    Volume  Polarity
+0     0  0.624646  0.643979  0.065188   0.00000
+1     1  0.615762  0.637185  0.082426   0.24932
+2     2  0.635758  0.627921  0.103922   0.00000
+3     3  0.657373  0.648097  0.173515   0.20230
+4     4  0.614339  0.670743  0.183628  -0.40230
+---
+     Item      Open     Close    Volume  Polarity
+453   453  0.041212  0.035822  0.323722    0.0000
+454   454  0.047879  0.042205  0.166102    0.7184
+455   455  0.042020  0.048998  0.173713    0.0000
+456   456  0.064428  0.043201  0.153926    0.0000
+457   457  0.079798  0.066086  0.094531    0.0000
+x_train (346, 4)
+y_train (346,)
+x_test (110, 4)
+y_test (110,)
+x_train (341, 5, 4)
+y_train (341,)
+x_test (105, 5, 4)
+y_test (105,)
+compilation time :  0.008812665939331055
+Epoch 1/3
+11/11 [==============================] - 1s 98ms/step - loss: 0.1568 - val_loss: 0.0173
+Epoch 2/3
+11/11 [==============================] - 0s 25ms/step - loss: 0.0172 - val_loss: 3.2935e-04
+Epoch 3/3
+11/11 [==============================] - 0s 25ms/step - loss: 0.0068 - val_loss: 0.0041
+
+Prediction using Empirical Data and Sentiment Polarities:
+Train Score: 0.00369572 MSE (0.06079241 RMSE)
+Test Score: 0.01111891 MSE (0.10544623 RMSE)
+Delta Pr(ice: 0.011119 - RMSE * Adjusted Close Range
+x_train (346, 4)
+y_train (346,)
+x_test (110, 4)
+y_test (110,)
+x_train (341, 5, 4)
+y_train (341,)
+x_test (105, 5, 4)
+y_test (105,)
+compilation time :  0.008793830871582031
+Epoch 1/3
+11/11 [==============================] - 1s 102ms/step - loss: 0.1244 - val_loss: 0.0025
+Epoch 2/3
+11/11 [==============================] - 0s 31ms/step - loss: 0.0181 - val_loss: 0.0149
+Epoch 3/3
+11/11 [==============================] - 0s 30ms/step - loss: 0.0077 - val_loss: 4.0608e-04
+
+Tuned Prediction using Empirical Data and Sentiment Polarities:
+Train Score: 0.00480083 MSE (0.06928799 RMSE)
+Test Score: 0.00459798 MSE (0.06780839 RMSE)
+Delta Pr(ice: 0.004598 - RMSE * Adjusted Close Range
+
+Process finished with exit code 0

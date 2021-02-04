@@ -7,7 +7,7 @@ import yahoo_finance as yf
 
 
 def perform_empirical_analysis(ticker, freq, polarities):
-    yf.download_from_yahoo_finance([ticker], "2020-11-24",
+    yf.download_from_yahoo_finance([ticker], "2020-12-07",
                                    datetime.today().strftime('%Y-%m-%d'))
     file_name = ticker + "_" + freq + ".csv"
     dataset = pd.read_csv(file_name)

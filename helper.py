@@ -155,4 +155,4 @@ def plot_lstm_prediction(actual, prediction, chart_name='Plot.png', title='Actua
     ax.set_title(title)
     ax.legend(loc='upper left')
 
-    plt.savefig(chart_name, bbox_inches='tight')
+    plt.savefig('static/images/'+chart_name+'.jpg', bbox_inches='tight')

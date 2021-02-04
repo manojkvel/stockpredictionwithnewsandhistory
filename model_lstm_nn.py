@@ -132,33 +132,35 @@ def model_with_empirical_data(emp_df, tuned, chart_name):
     trainScore = model.evaluate(x_train, y_train, verbose=0)
     # print('Train Score: %.8f MSE (%.8f RMSE)' % (trainScore, math.sqrt(trainScore)))
     pdf_output = io.StringIO()
-    pdf_output.write('Train Score: %.8f MSE (%.8f RMSE)' % (trainScore, math.sqrt(trainScore)))
+    pdf_output.write('<br/> %s :' % chart_name)
+    pdf_output.write('<br/>Train Score: %.8f MSE (%.8f RMSE)' % (trainScore, math.sqrt(trainScore)))
 
     testScore = model.evaluate(x_test, y_test, verbose=0)
     # print('Test Score: %.8f MSE (%.8f RMSE)' % (testScore, math.sqrt(testScore)))
-    pdf_output.write('\nTest Score: %.8f MSE (%.8f RMSE)' % (testScore, math.sqrt(testScore)))
+    pdf_output.write('<br/>Test Score: %.8f MSE (%.8f RMSE)' % (testScore, math.sqrt(testScore)))
     range = [np.amin(emp_df['Close']), np.amax(emp_df['Close'])]
 
     # Calculate the stock price delta in $
 
     true_delta = testScore * (range[1] - range[0])
     # print('Delta Price: %.6f - RMSE * Adjusted Close Range' % true_delta)
-    pdf_output.write('\nDelta Pr(ice: %.6f - RMSE * Adjusted Close Range' % true_delta)
-    print("\n" + chart_name + ":\n" + pdf_output.getvalue())
+    pdf_output.write('<br/>Delta Price: %.6f - RMSE * Adjusted Close Range' % true_delta)
+    #print(pdf_output.getvalue())
     # output_map[chart_name]=print(pdf_output.getvalue())
-    plot_model(model, to_file=chart_name + '_model.png', show_shapes=True, show_layer_names=True)
+    plot_model(model, to_file='static/images/' + chart_name + '_model.jpg', show_shapes=True, show_layer_names=True)
+    return pdf_output.getvalue()
 
 
 def train_and_predict(ticker):
     # ticker = 'AAPL'
     # 2021-01-04
-
+    model_output = io.StringIO()
     emp_df = ea.perform_empirical_analysis(ticker, '30m', 'polarities')
     # ea.plot_basic(emp_df,ticker+" Empirical Data")
     emp_df.to_csv(ticker + '_normalised.csv', index=False)
     emp_df = emp_df.drop(['Item'], axis=1)
-    model_with_empirical_data(emp_df, False, 'Prediction using Empirical Data Only')
-    model_with_empirical_data(emp_df, True, 'Tuned Prediction using Empirical Data Only')
+    model_output.write(model_with_empirical_data(emp_df, False, 'Prediction using Empirical Data Only'))
+    model_output.write(model_with_empirical_data(emp_df, True, 'Tuned Prediction using Empirical Data Only'))
 
     news = sa.calculatePolarities(sa.parseFinviz(ticker))
     # news=result.copy()
@@ -175,5 +177,8 @@ def train_and_predict(ticker):
     # ea.plot_basic(emp_df,ticker+" Emprical Data")
     emp_df.to_csv(ticker + '_normalised.csv', index=False)
     emp_df = emp_df.drop(['Item'], axis=1)
-    model_with_empirical_data(emp_df, False, 'Prediction using Empirical Data and Sentiment Polarities')
-    model_with_empirical_data(emp_df, True, 'Tuned Prediction using Empirical Data and Sentiment Polarities')
+    model_output.write(
+        model_with_empirical_data(emp_df, False, 'Prediction using Empirical Data and Sentiment Polarities'))
+    model_output.write(
+        model_with_empirical_data(emp_df, True, 'Tuned Prediction using Empirical Data and Sentiment Polarities'))
+    return model_output.getvalue()

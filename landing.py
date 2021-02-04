@@ -23,9 +23,9 @@ def home():
 def train_and_predict():
     if request.method == "POST":
         ticker = request.form['ticker']
-        # sa.plotPolarities(sa.calculatePolarities(sa.parseFinviz(ticker)))
-        nn.train_and_predict(ticker)
-    return render_template("index.html")
+        #sa.plotPolarities(sa.calculatePolarities(sa.parseFinviz(ticker)))
+        model_output = nn.train_and_predict(ticker)
+    return render_template("predictions.html", ticker=ticker, model_response=model_output)
 
 
 if __name__ == "__main__":
